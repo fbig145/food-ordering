@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
-project(xor_bit_problem C)
+project(food-ordering C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(xor_bit_problem main.c)
+add_executable(food-ordering main.c index.h index.c DisplayCustomer.h DisplayCustomer.c DisplayItems.c DisplayItems.h DisplayItems.c)
