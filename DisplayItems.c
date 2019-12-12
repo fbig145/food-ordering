@@ -8,15 +8,15 @@
 #define MAX_DRINK 30
 #define MAX_ANSW 20
 
-void DisplayFood(int typesOfFood, char types[][MAX_TYPES]) {
+void DisplayFood(int typesOfFood, char **types) {
     printf("Please choose the food you feel like eating today:\n");
-    for (int i = 0; i < typesOfFood - 1; i++) {
+    for (int i = 0; i < typesOfFood ; i++) {
         putchar('a' + i);
         printf(") %s\n", types[i]);
     }
 }
 
-void DisplayFoodChoice(char types[][MAX_TYPES], int typeChoice, int noTypes[], char type[4][4][30], double prices[4][4]){
+void DisplayFoodChoice(char **types, int typeChoice, int *noTypes, char ***type, double **prices){
     printf("Please choose the type of %s you want:\n", types[typeChoice]);
     for(int i=0; i < noTypes[typeChoice]; i++) {
         putchar('a'+i);
@@ -25,7 +25,7 @@ void DisplayFoodChoice(char types[][MAX_TYPES], int typeChoice, int noTypes[], c
     printf("%c) Go back\n", 'a' + noTypes[typeChoice]);
 }
 
-void DrinksTypes(char types[][MAX_TYPES], int typeChoice, int noOfDrinks, char Drinks[][MAX_DRINK], double DrinksPrices[]){
+void DrinksTypes(char **types, int typeChoice, int noOfDrinks, char **Drinks, double *DrinksPrices){
     printf("Please choose a drink to go with your %s:\n", types[typeChoice]);
     for(int i=0; i < noOfDrinks; i++) {
         putchar('a'+i);
@@ -43,7 +43,7 @@ void cutlery(int answer, char answerType[][MAX_ANSW] ){
     printf("%c) Go back\n", 'a' + answer);
 }
 
-void Prices(double aD, int nD, double DrinksPrices[], int cnD[], char Drinks[][MAX_DRINK] ){
+void Prices(double aD, int nD, double *DrinksPrices, int cnD[], char **Drinks ){
     for(int i=0; i < nD; i++) {
         aD += DrinksPrices[cnD[i]];}
     if(nD != 0){
