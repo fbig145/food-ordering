@@ -22,7 +22,7 @@ void DisplayOrder1(char username[]){
     printf("Food items:\n");
 }
 
-void DisplayOrder2(char answerType[][MAX_ANSW], int typeChoice, int type2Choice, char info[], double prices[][4], double aD, int type3Choice ){
+void DisplayOrder2(char answerType[][MAX_ANSW], int typeChoice, int type2Choice, char info[], double **prices, double aD, int type3Choice ){
 
     printf("--Cutlery: %s\n", answerType[type3Choice]);
     printf("Additional information: %s", info);

@@ -3,4 +3,5 @@ project(food-ordering C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(food-ordering main.c index.h index.c DisplayCustomer.h DisplayCustomer.c DisplayItems.c DisplayItems.h DisplayItems.c)
+add_executable(xor_bit_problem main.c DisplayCustomer.c DisplayCustomer.h DisplayItems.c DisplayItems.h index.c index.h)
+

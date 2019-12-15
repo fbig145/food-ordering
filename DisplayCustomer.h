@@ -8,7 +8,7 @@
 
 void InputPersonalData(char username[], char password[]);
 void DisplayOrder1(char username[]);
-void DisplayOrder2(char answerType[][MAX_ANSW], int typeChoice, int type2Choice, char info[], double prices[][4], double aD, int type3Choice );
+void DisplayOrder2(char answerType[][MAX_ANSW], int typeChoice, int type2Choice, char info[], double **prices, double aD, int type3Choice );
 
 
 
