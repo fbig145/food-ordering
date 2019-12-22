@@ -8,6 +8,8 @@
 #define MAX_DRINK 30
 #define MAX_ANSW 20
 
+
+
 void DisplayFood(int typesOfFood, char **types);
 void DisplayFoodChoice(char **types, int typeChoice, int *noTypes, char ***type, double **prices);
 void DrinksTypes(char **types, int typeChoice, int noOfDrinks, char **Drinks, double *DrinksPrices);
