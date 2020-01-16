@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "DisplayCustomer.h"
+#include "addInfo.h"
 #include "DisplayItems.h"
 #include "index.h"
+#include "UserStruct.h"
 #define LOAD_DATA "Please load the data\n"
 #define MAX_ANSW 20
 #define MAX_FOOD_NAME 100
@@ -98,15 +99,17 @@ int main() {
     }
     printf("\n"); */
 
+    user u = createUser();
+    info q = createInfo();
+
     printf("Welcome to Food Thingies!\n");
-    char answerType[][MAX_ANSW]={"Yes!", "No, thanks!"}, username[20], password[20];
+    char answerType[][MAX_ANSW]={"Yes!", "No, thanks!"};
     int choice, typeChoice, type2Choice, type3Choice, nD = 0, cnD[3], answer = 2 ;
-    char info[100];
     int state = 0, orderStatus = 0;
     while(!orderStatus){
         switch (state) {
                 case 0: {
-                InputPersonalData(username, password);
+                InputPersonalData(&u);
                 state++;
                 break;}
                 case 1: {
@@ -127,13 +130,13 @@ int main() {
                     break;}
                 case 5:{
                     printf("Any additional info?\n");
-                    fgets(info, 100, stdin);}
+                    fgets(q.info, 100, stdin);}
                 case 6:{
-                    DisplayOrder1(username);
+                    DisplayOrder1(&u);
                     printf("--%s (%.2f) \n", type[typeChoice][type2Choice], prices[typeChoice][type2Choice]);
                     double aD = 0;
                     Prices(aD, nD, DrinksPrices, cnD, Drinks);
-                    DisplayOrder2(answerType, typeChoice, type2Choice, info, prices, nD, type3Choice);
+                    DisplayOrder2(answerType, typeChoice, type2Choice, &q, prices, nD, type3Choice);
                     choice = getchar();
                     if(choice=='a') {
                         printf("Order confirmed! Thank you for buying from us!");
@@ -161,6 +164,9 @@ int main() {
     }
     free(Drinks);
     free(DrinksPrices);
+    free(u.password);
+    free(u.username);
+    free(q.info);
 
     return 0;
 }
